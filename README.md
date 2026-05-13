@@ -1,1 +1,1 @@
-# game-finder-lombok
+# game-finder
