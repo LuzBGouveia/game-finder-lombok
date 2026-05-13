@@ -1,14 +1,6 @@
 -- =========================================
 -- SEED - TABELA GAMES
 -- =========================================
--- Considerando:
--- id -> AUTO_INCREMENT
--- launch -> DATE
--- price -> DECIMAL
---
--- Ajuste os nomes das tabelas relacionais
--- caso o Hibernate gere nomes diferentes.
--- =========================================
 
 INSERT INTO games (name, launch, price) VALUES
                                             ('The Witcher 3: Wild Hunt', '2015-05-19', 149.90),
@@ -61,58 +53,17 @@ INSERT INTO games (name, launch, price) VALUES
                                             ('Final Fantasy VII Remake', '2020-04-10', 249.90),
                                             ('Persona 5 Royal', '2019-10-31', 249.90),
                                             ('Monster Hunter: World', '2018-01-26', 129.90);
-
--- =========================================
--- EXEMPLOS DE RELACIONAMENTOS
--- =========================================
--- Use apenas se suas tabelas já existirem
--- e os IDs baterem corretamente.
--- =========================================
-
 -- -----------------------------------------
 -- GAME <-> DEVELOPERS (ManyToMany)
 -- -----------------------------------------
--- Exemplo de tabela gerada:
--- games_developers(game_id, developers_id)
-
-INSERT INTO games_developers (game_id, developers_id) VALUES
-                                                          (1, 1),
-                                                          (2, 1),
-                                                          (3, 2),
-                                                          (4, 2),
-                                                          (5, 3),
-                                                          (6, 4),
-                                                          (7, 4),
-                                                          (8, 4);
+-- Implementar amanhã
 
 -- -----------------------------------------
 -- GAME <-> PUBLISHERS (ManyToMany)
 -- -----------------------------------------
--- Exemplo:
--- games_publishers(game_id, publishers_id)
-
-INSERT INTO games_publishers (game_id, publishers_id) VALUES
-                                                          (1, 1),
-                                                          (2, 1),
-                                                          (3, 2),
-                                                          (4, 2),
-                                                          (5, 3),
-                                                          (6, 4),
-                                                          (7, 4),
-                                                          (8, 5);
+-- Implementar amanhã
 
 -- -----------------------------------------
 -- GAME -> FRANCHISE (ManyToOne)
 -- -----------------------------------------
-
-UPDATE games SET franchise_id = 1 WHERE id IN (9, 10);
-UPDATE games SET franchise_id = 2 WHERE id IN (16, 17, 18);
-UPDATE games SET franchise_id = 3 WHERE id IN (41, 42);
-UPDATE games SET franchise_id = 4 WHERE id IN (46, 47);
-
--- =========================================
--- RESET AUTO_INCREMENT (MySQL)
--- OPCIONAL
--- =========================================
-
-ALTER TABLE games AUTO_INCREMENT = 100;
+-- Implementar amanhã
