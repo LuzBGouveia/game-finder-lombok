@@ -37,14 +37,14 @@ public record GameRequest(
         Franchise franchise
 ) {
     public Game toEntity() {
-        return new Game(
-                name,
-                launch,
-                price,
-                genres,
-                developers,
-                publishers,
-                franchise
-        );
+        return Game.builder()
+                .name(name)
+                .launch(launch)
+                .price(price)
+                .genres(genres)
+                .developers(developers)
+                .publishers(publishers)
+                .franchise(franchise)
+                .build();
     }
 }
