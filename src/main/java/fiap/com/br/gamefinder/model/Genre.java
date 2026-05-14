@@ -25,9 +25,9 @@ public class Genre {
     private String name;
 
     public EntityModel<Genre> toEntityModel() {
+        var linkAllGenre = linkTo(methodOn(GenreController.class).findAll()).withRel("all-genres").withTitle("All Genres");
         var linkSelf = linkTo(methodOn(GenreController.class).findById(id)).withSelfRel().withTitle("Genre details");
-        var link = linkTo(methodOn(GenreController.class).findById(id)).withSelfRel().withTitle("Games details");
 
-        return EntityModel.of(this, linkSelf, link);
+        return EntityModel.of(this, linkSelf, linkAllGenre);
     }
 }
