@@ -3,6 +3,7 @@ package fiap.com.br.gamefinder.controller;
 import fiap.com.br.gamefinder.dto.GameRequest;
 import fiap.com.br.gamefinder.model.Game;
 import fiap.com.br.gamefinder.service.GameService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,13 +11,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/games")
+@RequiredArgsConstructor
 public class GameController {
 
     private final GameService gameService;
-
-    public GameController(GameService gameService) {
-        this.gameService = gameService;
-    }
 
     @GetMapping
     public List<EntityModel<Game>> findAll() {

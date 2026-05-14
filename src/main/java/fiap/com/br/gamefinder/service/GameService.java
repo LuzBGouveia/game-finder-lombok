@@ -3,19 +3,17 @@ package fiap.com.br.gamefinder.service;
 import fiap.com.br.gamefinder.dto.GameRequest;
 import fiap.com.br.gamefinder.model.Game;
 import fiap.com.br.gamefinder.repository.GameRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class GameService {
 
     private final GameRepository gameRepository;
-
-    public GameService(GameRepository gameRepository) {
-        this.gameRepository = gameRepository;
-    }
 
     public List<Game> findAll() {
         return gameRepository.findAll();

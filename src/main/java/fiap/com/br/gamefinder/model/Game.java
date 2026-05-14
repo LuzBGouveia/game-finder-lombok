@@ -7,9 +7,7 @@ import lombok.Builder;
 import lombok.Data;
 import org.springframework.hateoas.EntityModel;
 
-import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.Set;
 
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
@@ -43,10 +41,11 @@ public class Game {
     private String backdropUrl;
 
     private Boolean inWishList;
-    public EntityModel<Game> toEntityModel() {
-        var linkAllProfessional = linkTo(methodOn(GameController.class).findAll()).withRel("all-games").withTitle("All games");
-        var linkSelf = linkTo(methodOn(GameController.class).findById(id)).withSelfRel().withTitle("Professional details");
 
-        return EntityModel.of(this, linkSelf, linkAllProfessional);
+    public EntityModel<Game> toEntityModel() {
+        var linkAllGame = linkTo(methodOn(GameController.class).findAll()).withRel("all-games").withTitle("All games");
+        var linkSelf = linkTo(methodOn(GameController.class).findById(id)).withSelfRel().withTitle("Games details");
+
+        return EntityModel.of(this, linkSelf, linkAllGame);
     }
 }
